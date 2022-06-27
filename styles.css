@@ -1,0 +1,17 @@
+.gameboard {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.field {
+  width: 100px;
+  height: 100px;
+  border: solid 1px red;
+  
+}
