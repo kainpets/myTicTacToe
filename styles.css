@@ -19,3 +19,38 @@
   position: relative;
   border: 1px solid red;
 }
+
+.field.x::before,
+.field.x::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: 15px;
+  height: 100px;
+}
+
+.field.x::before {
+  transform: rotate(45deg);
+}
+
+.field.x::after {
+  transform: rotate(-45deg);
+}
+
+.field.o::before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.field.o::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: white;
+}
