@@ -1,18 +1,23 @@
+const xClass = "x";
+const oClass = "o";
 const fields = document.querySelectorAll("[data-cell]");
+let xTurn;
 
-function play() {
-  clickField();
-  checkWin();
+fields.forEach((field) => {
+  field.addEventListener("click", main, { once: true });
+});
+
+function main(event) {
+  const field = event.target; // whatever was clicked
+  const currentClass = xTurn ? xClass : oClass; // appropriate class to apply
+  placeMark(field, currentClass);
+  switchTurns();
 }
 
-function checkWin() {}
-
-function clickField() {
-  fields.forEach((field) => {
-    field.addEventListener("click", (event) => {
-      field.classList.add(`x`);
-    });
-  });
+function placeMark(field, currentClass) {
+  field.classList.add(currentClass);
 }
 
-play();
+function switchTurns() {
+  xTurn = !xTurn;
+}
