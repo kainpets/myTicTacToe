@@ -5,6 +5,7 @@ const winMessageTextElement = document.querySelector(
   "[data-winning-message-text]"
 );
 const winningMessage = document.getElementById("winningMessage");
+const restartButton = document.querySelector(".reset");
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -20,6 +21,10 @@ let xTurn;
 fields.forEach((field) => {
   field.addEventListener("click", main, { once: true });
 });
+
+restartButton.addEventListener("click", () => {
+  document.location.reload();
+})
 
 function main(event) {
   const field = event.target; // whatever was clicked
@@ -45,9 +50,9 @@ function endGame(draw) {
 }
 
 function isDraw() {
-  return [...fields].every(field => {
-    return field.classList.contains(xClass || field.classList.contains(oClass))
-  })
+  return [...fields].every((field) => {
+    return field.classList.contains(xClass) || field.classList.contains(oClass);
+  });
 }
 
 function placeMark(field, currentPlayer) {
